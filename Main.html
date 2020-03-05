@@ -1,0 +1,314 @@
+<html>
+<!--Bootstrap stylesheet -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<!--Our stylesheet -->
+<link rel="stylesheet" type="text/css" href="style/Block2CSS.css">
+<!--Bootstrap javascript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/signup-form.js"></script>
+<script src="javascriptEx2.js"></script>
+
+	<nav class="navbar sticky-top navbar" id ="welcomepagenavbar">
+		<img class="img1" id="proPic" src="images/logo.jpg"><p id="title">Welcome to Personal Space!</p>
+			<!-- Menu with 3 options -->
+		<button type="button" class = "btn btn-link" id = "addListButton" onclick="throwListPrompt()"> <b>Add a List</b></button>
+		<button type="button" class = "btn btn-link" id = "MyAccountButton" onclick="toAccountPage()"><b> My Account </b></button>
+		<button type="button" class = "btn btn-link" id = "SignOutButton" onclick="logout()"> <b>Sign Out</b></button>
+	</nav>
+
+	<body>
+<!-- This code is for the Main Page -->
+		<div id="backDiv">
+		<!-- <div class="mode" id="popupShare">
+				<p class = "cardTitle" id="shareText"></p>
+				<a href="https://www.facebook.com"><img src="images/facebook.png" width="50" height="50" title="White flower" alt="FB"></a>
+				<a href="https://www.instagram.com"><img src="images/insta.png" width="50" height="50" alt="Instagram"></a>
+				<a href="https://twitter.com"><img src="images/TWITTER.png" width="45" height="50" alt="Twitter"></a>
+		</div> -->
+
+		<!-- <div class="mode" id="popupHamburger">
+				<p><b>Options</b></p>
+				<input type="button" value="Archive List" onclick="delCol()">
+				<input type="button" value="Expand List">
+				<input type="button" value="Print List">
+				<input type="button" value="Convert to PDF">
+		</div> -->
+
+
+       <!-- Code for add card popup -->
+		<div id="addCardPopup" class="mode">
+			<form name="cardForm" id="cardForm" autocomplete="off">
+					<fieldset>
+						<legend>Enter the card information below!</legend>
+						<p>
+							<label for="name">Task Name</label>
+							<input id="name" name="name" type="text" required/>
+						</p>
+
+						<p>
+							<label for="date">Due Date (For example, 01/01/19)</label>
+							<input id="date" name="date" type="text" required/>
+						</p>
+
+						<p>
+							<input type="button" class = "btn btn-success" value="Add" onclick="addCard()">
+							<input type="button" class = "btn btn-danger" value="Cancel" onclick="cancelAddCard()">
+							<input type="button" class = "btn btn-warning" value="Reset Form" onclick="resetAddCard()">
+						</p>
+					</fieldset>
+			</form>
+		</div>
+
+		<!-- Code for the add list popup -->
+				<div id= "addListPopup" class ="mode">
+					<p> What is the title of your new list?	</p>
+					<form id="addListForm">
+						<fieldset>
+						<label for="title">Title </label>
+						<input id="titlecard" name="title" type="text" required></input>
+
+					<p> What is the color of your new list? </p>
+						<input id="cardcolor" type="color" value = "#EAE7DC" name"what color"></input>
+						<p> </p>
+						<input type="button" class="btn btn-success" value="Create List" onclick="addList()"></input>
+					</fieldset>
+				</form>
+				</div>
+		</div>
+
+		<div id="fullBody">
+
+			<div class="bodyDivs" id="bodyDiv1">
+				<p class = "SectionTitle">Where to Eat</p>
+				<input type="image" onclick="delCol('bodyDiv1')" class = "upperRight" src="images/x_button.png" />
+
+				<div id="sortablecards">
+				<div class = "card" id="card1">
+					<div class = "topCard">
+<!-- 						<img class = "cardImg" src="images/amazonico.jpg"/>
+ -->						<p class = "cardTitle" id="nameID1">Add a task to get started!</p>
+						<input type="image" onclick="deleteCard('card1')" class = "cardX" src="images/x_button.png"/>
+					</div>
+
+					<div class = "bottomCard">
+						<input type="image" id="star1" class="star" onclick="likeCard('star1')" src="images/star.png">
+						<div class="cardI2">
+
+							<p>	Done?</p>
+						</div>
+						<input type="checkbox" name="done_box" class="cardI3" value="yes_no">
+						<div class="card_word_date"> <p> Due: </p></div>
+
+
+						<!-- <div class="tooltip"class = "cardI1"><input type="image" id="like1" onclick="likeCard('like1')" class = "cardI1" src="images/star.png" />
+							<span class="tooltiptext">Mark this card</span>
+						</div>
+
+						<div class="tooltip"><img class = "cardI2" src="images/comment.png"/>
+							<span class="tooltiptext">Comment on this card</span>
+
+  							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+						</div>
+
+						<div class="tooltip"><input type="image" onclick="shareCard('nameID1')" class = "cardI3" src="images/share.png" />
+							<span class="tooltiptext">Share this card</span>
+						</div>
+ -->
+						<div class = "cardDate"> <p>25/12/2019</p> </div>
+<!-- 						<div class = "cardTime"> <p>15:47</p> </div>
+ -->					</div>
+</div>
+				</div>
+		<!-- 		<div class = "card" id="card2">
+					<div class = "topCard">
+						<img class = "cardImg" src="images/tenconten.jpg"/>
+ 						<p class = "cardTitle" id="nameID2">Ten Con Ten: One of the Top Restuarants in all of Spain</p>
+						<input type="image" onclick="deleteCard('card2')" class = "cardX" src="images/x_button.png" />
+					</div>
+
+					<div class = "bottomCard">
+						<div class="tooltip"><input type="image" id="like2" onclick="likeCard('like2')" class = "cardI1" src="images/like.png" />
+							<span class="tooltiptext">Like this card</span>
+						</div>
+
+						<div class="tooltip"><img class = "cardI2" src="images/comment.png"/>
+							<span class="tooltiptext">Comment on this card</span>
+						</div>
+
+						<div class="tooltip"><input type="image" onclick="shareCard('nameID2')" class = "cardI3" src="images/share.png" />
+							<span class="tooltiptext">Share this card</span>
+						</div>
+
+						<div class = "cardDate"> <p>01/01/19</p> </div>
+						<div class = "cardTime"> <p>15:47</p> </div>
+					</div>
+
+				</div>
+				<div class = "card" id="card3">
+					<div class = "topCard">
+						<img class = "cardImg" src="images/alhambrares.jpg"/>
+ 						<p class = "cardTitle" id="nameID3">Alhambra: family-owned tapas restaurant steps from Puerta de Sol</p>
+						<input type="image" onclick="deleteCard('card3')" class = "cardX" src="images/editicon.png" />
+					</div>
+
+					<div class = "bottomCard">
+						<div class="tooltip"><input type="image" id="like3" onclick="likeCard('like3')" class = "cardI1" src="images/like.png" />
+							<span class="tooltiptext">Like this card</span>
+						</div>
+
+						<div class="tooltip"><img class = "cardI2" src="images/comment.png"/>
+							<span class="tooltiptext">Comment on this card</span>
+						</div>
+
+						<div class="tooltip"><input type="image" onclick="shareCard('nameID3')" class = "cardI3" src="images/share.png" />
+							<span class="tooltiptext">Share this card</span>
+						</div>
+
+						<div class = "cardDate"> <p>01/01/19</p> </div>
+						<div class = "cardTime"> <p>15:47</p> </div>
+					</div>
+
+				</div>
+				<div class = "card" id="card4">
+					<div class = "topCard">
+						<img class = "cardImg" src="images/streetxo.jpg"/>
+						<p class = "cardTitle" id="nameID4">StreetXO is some of the best fine dining in Madrid</p>
+						<input type="image" onclick="deleteCard('card4')" class = "cardX" src="images/editicon.png" />
+					</div>
+
+					<div class = "bottomCard">
+						<div class="tooltip"><input type="image" id="like4" onclick="likeCard('like4')" class = "cardI1" src="images/like.png" />
+							<span class="tooltiptext">Like this card</span>
+						</div>
+
+						<div class="tooltip"><img class = "cardI2" src="images/comment.png"/>
+							<span class="tooltiptext">Comment on this card</span>
+						</div>
+
+						<div class="tooltip"><input type="image" onclick="shareCard('nameID4')" class = "cardI3" src="images/share.png" />
+							<span class="tooltiptext">Share this card</span>
+						</div>
+
+						<div class = "cardDate"> <p>01/01/19</p> </div>
+						<div class = "cardTime"> <p>15:47</p> </div>
+					</div>
+
+				</div> -->
+				<input type="image" onclick="addCardPopup('bodyDiv1')"  class = "addCardButton" src="images/add.png" />
+			</div>
+
+
+			<!-- <div class="bodyDivs" id="bodyDiv2">
+				<p class = "SectionTitle">Where to Eat<p>
+				<input type="image" onclick="hamburgerPopup('bodyDiv2')" class = "upperRight" src="images/ham.png" />
+
+				<div class = "card" id="card5">
+					<div class = "topCard">
+						<img class = "cardImg" src="images/sol.jpg"/>
+						<p class = "cardTitle" id="nameID5">The true center of the city is Puerta de Sol</p>
+						<input type="image" onclick="deleteCard('card5')" class = "cardX" src="images/editicon.png" />
+					</div>
+
+					<div class = "bottomCard">
+						<div class="tooltip"><input type="image" id="like5" onclick="likeCard('like5')" class = "cardI1" src="images/like.png" />
+							<span class="tooltiptext">Like this card</span>
+						</div>
+
+						<div class="tooltip"><img class = "cardI2" src="images/comment.png"/>
+							<span class="tooltiptext">Comment on this card</span>
+						</div>
+
+						<div class="tooltip"><input type="image" onclick="shareCard('nameID5')" class = "cardI3" src="images/share.png" />
+							<span class="tooltiptext">Share this card</span>
+						</div>
+
+						<div class = "cardDate"> <p>01/01/19</p> </div>
+						<div class = "cardTime"> <p>15:47</p> </div>
+					</div>
+
+				</div>
+
+				<div class = "card" id="card6">
+					<div class = "topCard">
+						<img class = "cardImg" src="images/plazamayor.jpg"/>
+						<p class = "cardTitle" id="nameID6">Plaza Mayor: A beautiful sqaure lined with traditional restaurants</p>
+						<input type="image" onclick="deleteCard('card6')" class = "cardX" src="images/editicon.png" />
+					</div>
+
+					<div class = "bottomCard">
+						<div class="tooltip"><input type="image" id="like6" onclick="likeCard('like6')" class = "cardI1" src="images/like.png" />
+							<span class="tooltiptext">Like this card</span>
+						</div>
+
+						<div class="tooltip"><img class = "cardI2" src="images/comment.png"/>
+							<span class="tooltiptext">Comment on this card</span>
+						</div>
+
+						<div class="tooltip"><input type="image" id="share6" onclick="shareCard('nameID6')" class = "cardI3" src="images/share.png" />
+							<span class="tooltiptext">Share this card</span>
+						</div>
+
+						<div class = "cardDate"> <p>01/01/19</p> </div>
+						<div class = "cardTime"> <p>15:47</p> </div>
+					</div>
+
+				</div>
+
+				<div class = "card" id="card7">
+					<div class = "topCard">
+						<img class = "cardImg" src="images/retiro.jpg"/>
+						<p class = "cardTitle" id="nameID7">Retiro is one of the most beautiful gardens in all of Europe</p>
+						<input type="image" onclick="deleteCard('card7')" class = "cardX" src="images/editicon.png" />
+					</div>
+
+					<div class = "bottomCard">
+						<div class="tooltip"><input type="image" id="like7" onclick="likeCard('like7')" class = "cardI1" src="images/like.png" />
+							<span class="tooltiptext">Like this card</span>
+						</div>
+
+						<div class="tooltip"><img class = "cardI2" src="images/comment.png"/>
+							<span class="tooltiptext">Comment on this card</span>
+						</div>
+
+						<div class="tooltip"><input type="image" onclick="shareCard('nameID7')" class = "cardI3" src="images/share.png" />
+							<span class="tooltiptext">Share this card</span>
+						</div>
+
+						<div class = "cardDate"> <p>01/01/19</p> </div>
+						<div class = "cardTime"> <p>15:47</p> </div>
+					</div>
+
+				</div>
+					<input type="image" onclick="addCardPopup('bodyDiv2')"  class = "addCardButton" src="images/add.png" />
+			</div>
+ -->
+
+
+		</div>
+	</body>
+
+
+	<footer>
+		<div class="footDiv">
+			<div class = "innerFoot">
+				<img id="l1" href="facebook.com" src="images/facebook.png"/>
+
+				<img id="line1" src="images/vert.jpg"/>
+
+				<img id="l2" href="instagram.com" src="images/insta.png"/>
+
+				<img id="line2" src="images/vert.jpg"/>
+
+				<img id="l3" href="twitter.com" src="images/TWITTER.png"/>
+			</div>
+		</div>
+	</footer>
+
+</html>
